@@ -1,0 +1,24 @@
+<h1>
+   <button (click)="left()"><</button>
+   {{customer.name}}
+   <button (click)="right()">></button>
+</h1>
+<p>
+   <i>
+      {{customer.name}}
+      is at {{customer.address.street}}
+      in city {{customer.address.city}}
+      in state {{customer.address.state}}
+      in the {{customer.address.region}} region.
+   </i>
+</p>
+
+<fieldset>
+   <label>Name: <input [(ngModel)]="customer.name" /></label>
+</fieldset>
+
+<label><input type="checkbox" [(ngModel)]="showAddress"/> Show Address</label>
+
+<div *ngIf="showAddress">
+   <address-comp [address]="customer.address"></address-comp>
+</div>
